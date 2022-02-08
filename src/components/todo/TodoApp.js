@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import withNavigation from './WithNavigation'
 import withParams from './WithParams'
+import AuthenticationService from './AuthenticationService'
 
 class TodoApp extends Component {
   render() {
@@ -18,9 +19,9 @@ class TodoApp extends Component {
               path='/welcome/:name'
               element={<WelcomeComponentWithParams />}
             />
-            <Route path='*' element={<ErrorComponent />} />
             <Route path='/todos' element={<ListTodosComponent />} />
             <Route path='/logout' component={LogoutComponent} />
+            <Route path='*' element={<ErrorComponent />} />
           </Routes>
           <FooterComponent />
         </Router>
@@ -41,7 +42,7 @@ class HeaderComponent extends Component {
           </div>
           <ul className='navbar-nav'>
             <li>
-              <Link className='nav-link' to='/welcome/in28minutes'>
+              <Link className='nav-link' to='/welcome/home'>
                 Home
               </Link>
             </li>
@@ -171,9 +172,10 @@ class LoginComponent extends Component {
       this.state.username === 'walter' &&
       this.state.password === 'password!!!'
     ) {
+      AuthenticationService.registerSuccessfullLogin()
       this.props.navigate(`/welcome/${this.state.username}`)
-      this.setState({ showSuccessMessage: true })
-      this.setState({ hasLoginFailed: false })
+      // this.setState({ showSuccessMessage: true })
+      // this.setState({ hasLoginFailed: false })
     } else {
       this.setState({ showSuccessMessage: false })
       this.setState({ hasLoginFailed: true })

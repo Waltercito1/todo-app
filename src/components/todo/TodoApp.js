@@ -8,10 +8,11 @@ class TodoApp extends Component {
   render() {
     const LoginComponentWithNavigation = withNavigation(LoginComponent)
     const WelcomeComponentWithParams = withParams(WelcomeComponent)
+    const HeaderComponentWithNavigation = withNavigation(HeaderComponent)
     return (
       <div className='TodoApp'>
         <Router>
-          <HeaderComponent />
+          <HeaderComponentWithNavigation />
           <Routes>
             <Route path='/' element={<LoginComponentWithNavigation />} />
             <Route path='/login' element={<LoginComponentWithNavigation />} />
@@ -20,7 +21,7 @@ class TodoApp extends Component {
               element={<WelcomeComponentWithParams />}
             />
             <Route path='/todos' element={<ListTodosComponent />} />
-            <Route path='/logout' component={LogoutComponent} />
+            <Route path='/logout' element={<LogoutComponent />} />
             <Route path='*' element={<ErrorComponent />} />
           </Routes>
           <FooterComponent />
@@ -126,7 +127,7 @@ class ListTodosComponent extends Component {
           <table class='table'>
             <thead>
               <tr>
-                <th>description</th>
+                <th>Description</th>
                 <th>Is Completed?</th>
                 <th>Target Date</th>
               </tr>

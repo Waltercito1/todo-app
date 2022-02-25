@@ -175,8 +175,6 @@ class LoginComponent extends Component {
     ) {
       AuthenticationService.registerSuccessfullLogin()
       this.props.navigate(`/welcome/${this.state.username}`)
-      // this.setState({ showSuccessMessage: true })
-      // this.setState({ hasLoginFailed: false })
     } else {
       this.setState({ showSuccessMessage: false })
       this.setState({ hasLoginFailed: true })

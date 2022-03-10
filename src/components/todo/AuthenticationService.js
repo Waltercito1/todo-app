@@ -1,6 +1,6 @@
 class AthenticationService {
-  registerSuccessfulLogin(username, password) {
-    console.log('redisterSuccessfullLogin')
+  registerSuccessfullLogin(username, password) {
+    console.log('registerSuccessfullLogin')
     sessionStorage.setItem('authenticatedUser', username)
   }
 

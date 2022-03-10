@@ -33,6 +33,8 @@ class TodoApp extends Component {
 
 class HeaderComponent extends Component {
   render() {
+    const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
+    console.log(isUserLoggedIn)
     return (
       <header>
         <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
@@ -123,8 +125,8 @@ class ListTodosComponent extends Component {
     return (
       <div>
         <h1>List Todos</h1>
-        <div class='container'>
-          <table class='table'>
+        <div className='container'>
+          <table className='table'>
             <thead>
               <tr>
                 <th>Description</th>
